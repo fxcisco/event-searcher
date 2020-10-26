@@ -61,7 +61,7 @@
 
             if (!valid) {
               valid = item.text.some((text) => {
-                if (text.includes(searchParam)) {
+                if (text.toLowerCase().includes(searchParam)) {
                   return true;
                 }
               });
