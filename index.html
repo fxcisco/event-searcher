@@ -54,45 +54,30 @@
         const searchParam = searchValue.toLowerCase();
         if (searchParam) {
           list = list.filter((item) => {
-            let valid = false;
             if (item.name.toLowerCase().includes(searchParam)) {
               return true;
             }
-
-            if (!valid) {
-              valid = item.text.some((text) => {
-                if (text.toLowerCase().includes(searchParam)) {
-                  return true;
-                }
-              });
-            }
-            return valid;
+            return item.text.some((text) => text.toLowerCase().includes(searchParam));
           });
         }
 
-        let htmlRender = '';
-        list.forEach((k, i) => {
-          let answers = '';
-
-          k.text.forEach((t) => {
-            answers += (
+        const htmlRender = list.reduce((acc, curr) => {
+          const answers = curr.text.reduce((a,t) => {
+            return a + (
               `
               <p className="kam-answers" style="margin: 0;padding: 0;-webkit-box-sizing: inherit;box-sizing: inherit;font-size: 1.4rem;position: relative;padding-left: 1rem;">
                 <span style="position:absolute;display:inline-block;top:1rem;left:0;width:3px;height:3px;border-radius:50%;background-color:red"></span>${t}
               </p>
               `
-            )
-          })
+          )}, '')
 
-          htmlRender += (
-            `
+          return acc + (`
               <div className="kam-event" style="margin: 1rem auto;padding: 1rem;-webkit-box-sizing: inherit;box-sizing: inherit;border-radius: .5rem;-webkit-box-shadow: 0 2px 8px rgba(0,0,0,0.2);box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-                <h2 className="kam-title" style="margin: 0;padding: 0;-webkit-box-sizing: inherit;box-sizing: inherit;font-weight: bold;line-height: 1.2;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.4rem;">${k.name}</h2>
+                <h2 className="kam-title" style="margin: 0;padding: 0;-webkit-box-sizing: inherit;box-sizing: inherit;font-weight: bold;line-height: 1.2;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.4rem;">${curr.name}</h2>
                 ${answers}
               </div>
-            `
-          );
-        });
+          `);
+        }, '');
 
         eventContent.innerHTML = htmlRender;
       }
