@@ -128,7 +128,7 @@ const kamazonData = [
   {
     title:    "Practice of a Master",
     answers: [
-      { name: "Practice of Reviving", text: "Silver Coin -50	Revives your dead heroe"},
+      { name: "Practice of Reviving", text: "Silver Coin -50	Revives your dead hero"},
       { name: "Practice of Healing", text: "Silver Coin -30	All Heroes recover 30% of their own max HP"}
     ],
   },
