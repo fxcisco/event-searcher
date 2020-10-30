@@ -99,7 +99,7 @@ const kamazonData = [
     title:  "Luxury Boutique" ,
     answers: [
       { name: "Say you're just looking around", text: "All Heroes take damage by 30% of their own max HP"},
-      { name: "Pick up anything and pay", text: "Silver Coin -100	Nothing happened"}
+      { name: "Pick up anything and pay", text: "Silver Coin -10 Nothing happened"}
     ],
   },
   {
