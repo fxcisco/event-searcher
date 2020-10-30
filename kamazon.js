@@ -48,7 +48,7 @@ const kamazonData = [
     title: "Customer Service Center",
     answers: [
       { name: "File a complaint", text: "Silver Coin +50	Lose a random Artifact"},
-      { name: "Upgrade your membership to VIP", text:"Silver Coin -50	30% Discount at Store Artifacts"},
+      { name: "Upgrade your membership to VIP", text:"Silver Coin -50	[Artifact: 30% Discount at Artifact store]"},
       { name: "Ignore the android", text: "Nothing happened"}
     ],
   },
